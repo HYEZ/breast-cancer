@@ -1,0 +1,66 @@
+library(FactoMineR)
+library(missMDA)
+bc_data
+library(FactoMineR)
+library(missMDA)
+library(factoextra)
+library(corrplot)
+library(kohonen)
+library(ggplot2)
+library(tempR)
+setwd("C:/Users/user/Desktop/혜지")
+data = read.csv("CCLE_depMap_19Q1_TPM.csv", header=T, sep=",",
+stringsAsFactors  = FALSE, na.strings=c("na", "NA", "NaN", ""))
+order = names(data) # header만 추출
+t_data = read.table("TNBC_list.txt", header=T, sep="\t", stringsAsFactors  = FALSE, na.strings=c("na", "NA", "NaN", ""))
+nt_data = read.table("nonTNBC_list.txt", header=T, sep="\t", stringsAsFactors  = FALSE, na.strings=c("na", "NA", "NaN", ""))
+bc_data = matrix(nrow=0, ncol=ncol(data))
+for(i in t_data$ID) {
+subtype = c("tnbc")
+bc_data= rbind(bc_data, cbind(subset(data, ID == i), subtype))
+}
+for(i in nt_data$depMapID) {
+subtype = c("non-tnbc")
+if(nrow(subset(data, ID == i)) == 0 ) {
+next
+}
+bc_data= rbind(bc_data, cbind(subset(data, ID == i), subtype))
+}
+names(bc_data\)
+names(bc_data)
+bc_data$subtype
+# data process
+raw = as.data.frame(sapply(bc_data[,], as.numeric))
+raw = as.numeric(bc_data)
+#raw = as.data.frame(sapply(bc_data[,], as.numeric))
+row.names(bc_data) = bc_data$ID
+hh = 350
+ww = 400
+#pre PCA for missing values
+nb = estim_ncpPCA(bc_data[,3:ncol(bc_data)], ncp.max = 5)
+res.comp = imputePCA(bc_data[,3:ncol(bc_data)], ncp=nb$ncp)
+#raw = as.numeric(bc_data)
+#pre PCA for missing values
+nb = estim_ncpPCA(bc_data[,3:ncol(bc_data)], ncp.max = 5)
+raw = as.numeric(bc_data)
+raw = as.numeric(bc_data$TSPAN6..ENSG00000000003.)
+raw = as.numeric(bc_data$ID)
+#pre PCA for missing values
+nb = estim_ncpPCA(bc_data[,3:ncol(bc_data)], ncp.max = 5)
+raw = as.data.frame(sapply(bc_data[,], as.numeric))
+raw = suppressWarnings(as.data.frame(sapply(bc_data[,], as.numeric)))
+row.names(bc_data) = bc_data$ID
+hh = 350
+ww = 400
+raw = as.numeric(bc_data)
+raw = suppressWarnings(as.numeric(bc_data))
+row.names(raw) = rawa$ID
+row.names(raw) = raw$ID
+row.names(raw) = raw$ID
+raw = suppressWarnings(as.data.frame(sapply(bc_data[,], as.numeric)))
+row.names(raw) = raw$ID
+row2.names(raw) = raw$ID
+row.names(raw) = raw$ID
+raw = as.numeric(bc_data)
+raw = suppressWarnings(as.data.frame(sapply(bc_data[,], as.numeric)))
+row.names(raw) = raw$ID
